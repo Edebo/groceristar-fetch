@@ -174,3 +174,14 @@ describe('Search Form methods check', () => {
     expect(stream).not.toBe('')
   })
 })
+
+//ShowCase method check
+describe('ShowCase methods check', () => {
+  // @TODO format it later
+  
+  //testing getGroceryShowcase method isnt empty
+  test('[ShowCase] showcase checking', () => {
+    var stream = showcase.getGroceryShowcase()
+    expect(stream).not.toBe('')
+  })
+})
