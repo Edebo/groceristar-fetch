@@ -1,7 +1,13 @@
 const _ = require('lodash')
-const { __find, __get, __generateDate, __generateId } = require('../../utils')
+const {
+  __find,
+  // __get,
+  __generateDate,
+  __generateId
+} = require('../../utils')
 
-const files = {
+// const files = { It's es6, but now we are using es5 and it doesn't work
+const {
   ingredients3,
   menus,
   recipes,
@@ -23,7 +29,8 @@ const getFiveRandomId = function () {
 }
 
 const getRecipes = function () {
-  let recipes = __get(files.recipes)
+  // let recipes = __get(files.recipes)
+  let recipes = []
   let randomFiveIds = getFiveRandomId()
 
   let result =
@@ -47,21 +54,21 @@ const getRecipes = function () {
 
 // @TODO delete file menu.json from main set of files, but create a note at some place,
 // that Menu file is no longer needed because we replace it with fake data. you can use method ABC in order to generate that data.
-const getMenuGenerator = (number_of_weeks) => {
+const getMenuGenerator = (numberOfWeeks) => {
   let result
-  result = _.times(number_of_weeks, (index) => ({
-    id: __generateId(), 
-    title: 'Weekly menu #${index}',
-    date: __generateDate(), 
-    description: 'description for Weekly menu #${index}',
-    notes: 'This is a chef notes for wm #${index}'
+  result = _.times(numberOfWeeks, (index) => ({
+    id: __generateId(),
+    title: `Weekly menu ${index}`,
+    date: __generateDate(),
+    description: `description for Weekly menu ${index}`,
+    notes: `This is a chef notes for wm ${index}`
   }))
   return result
 }
 
 // @TODO replace it later. may need it at utils.js
 const getNRecipes = (n) => {
-  return _.slice(recipes, n)
+  // return _.slice(recipes, n)
 }
 
 /**
@@ -70,9 +77,9 @@ const getNRecipes = (n) => {
  * @return {object}       recipe object
  */
 const getRecipeByTitle = (title) => {
-  let recipes = __get(files.recipes)
-
-  return _.filter(recipes, recipe => recipe.title === title)[0]
+  // let recipes = __get(files.recipes)
+  // return _.filter(recipes, recipe => recipe.title === title)[0]
+  return []
 }
 
 /**
@@ -93,7 +100,7 @@ const getFirstFiveRecipes = () => {
   let recipes = getNRecipes(5)
 
   let result = _.map(recipes, item => ({
-    key: __generateId(), 
+    key: __generateId(),
     recipe: item
   }))
 
@@ -101,11 +108,11 @@ const getFirstFiveRecipes = () => {
 }
 
 const getFiveRandomIngredients = () => {
-  let result = _.map(getRandomRecipe(5), (recipe)=> ({
-  'id': __generateId(), 
-  'ingredient': recipe['ingredients']
-}));
-return result;
+  let result = _.map(getRandomRecipe(5), (recipe) => ({
+    'id': __generateId(),
+    'ingredient': recipe['ingredients']
+  }))
+  return result
 }
 
 module.exports = {
@@ -116,8 +123,6 @@ module.exports = {
   getFiveRandomIngredients,
   getMenuGenerator,
   getRecipes,
-
-  files,
-
+  // files,
   __find
 }

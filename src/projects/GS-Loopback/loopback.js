@@ -1,27 +1,36 @@
-const _ = require('lodash')
+// const _ = require('lodash')
 // const fs = require('fs')
 
-const { __get, __generateId, __generateDate } = require('../../utils')
-
 const {
-  ultimateGroceryList,
-  groceryListWithUserRelations,
-  dbIngredients
-} = require('./files')
+  // __get,
+  __generateId,
+  __generateDate
+} = require('../../utils')
+
+// @TODO this files we'll redo soon. link: https://github.com/GroceriStar/sd/issues/76
+// we don't need them at this moment, but later - it'll be part of our graphql-server functionality
+// const {
+//   ultimateGroceryList,
+//   groceryListWithUserRelations,
+//   dbIngredients
+// } = require('./files')
 
 // @TODO can we update our methods - but we'll need to go step by step,
 // because these methods used in our react projects.
 // so I propose do it very carefully
 const getUltimateGrocery = function () {
-  return __get(ultimateGroceryList)
+  // return __get(ultimateGroceryList)
+  return []
 }
 
 const getGLwithUserRelations = () => {
-  return __get(groceryListWithUserRelations)
+  // return __get(groceryListWithUserRelations)
+  return []
 }
 
 const getIngredientsSampleFromDB = () => {
-  return __get(dbIngredients)
+  // return __get(dbIngredients)
+  return []
 }
 
 // const getIngredients = function() {
@@ -80,18 +89,18 @@ const getIngredientsSampleFromDB = () => {
 //   return result;
 // }
 
-const getUserObject = function(name) {
+const getUserObject = function (name) {
   var userObj = {
-    "name": name,
-    "img": "false",
-    "desc": "false",
-    "slug": "false",
-    "created_at": __generateDate(),
-    "updated_at": __generateDate(),
-    "id": __generateId(),
-    "hideThisIds": [],
-    "purchasedIds": [],
-    "ingredientIds": []
+    'name': name,
+    'img': 'false',
+    'desc': 'false',
+    'slug': 'false',
+    'created_at': __generateDate(),
+    'updated_at': __generateDate(),
+    'id': __generateId(),
+    'hideThisIds': [],
+    'purchasedIds': [],
+    'ingredientIds': []
   }
   const hideIdsCount = Math.floor(Math.random() * 5)
   const purchasedIdsCount = Math.floor(Math.random() * 10)
@@ -108,7 +117,8 @@ const getUserObject = function(name) {
       userObj.ingredientIds[i] = __generateId()
     }
   }
-  return userObj;
+  // return userObj
+  return []
 }
 
 module.exports = {

@@ -1,12 +1,13 @@
 const staticData = require('@groceristar/sd-wrapper')
 
 const departments = staticData.departments
-
-let groceries = staticData.grocery
-
+const groceries = staticData.grocery
 const ingredients = staticData.ingredients
-
 const users = staticData.users
+
+// console.log("THis is departments");
+// console.log(departments)
+// // console.log(groceries)
 
 module.exports = {
   departments,
